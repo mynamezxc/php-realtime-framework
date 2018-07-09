@@ -23,8 +23,8 @@
         public function __construct() {
             $this->call = new call();
             defined('CONTROLLER_PATH') or define('CONTROLLER_PATH', APPPATH . '/' . $_SERVER['path']['controllerFolder'] . '/');
-            defined('MODEL_PATH') or define('MODEL_PATH', APPPATH . '/' . $_SERVER['path']['viewFolder'] . '/');
-            defined('VIEW_PATH') or define('VIEW_PATH', APPPATH . '/' . $_SERVER['path']['modelFolder'] . '/');
+            defined('MODEL_PATH') or define('MODEL_PATH', APPPATH . '/' . $_SERVER['path']['modelFolder'] . '/');
+            defined('VIEW_PATH') or define('VIEW_PATH', APPPATH . '/' . $_SERVER['path']['viewFolder'] . '/');
             defined('LIBRARY_PATH') or define('LIBRARY_PATH', APPPATH . '/' . $_SERVER['path']['libraryFolder'] . '/');
             defined('HELPER_PATH') or define('HELPER_PATH', APPPATH . '/' . $_SERVER['path']['helperFolder'] . '/');
         }

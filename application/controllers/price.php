@@ -1,10 +1,11 @@
 <?php
+
 namespace Realtime;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
-require '../application/libraries/autoload.php';
+require 'application/disks/autoload.php';
 
-class Price implements MessageComponentInterface {
+class price implements MessageComponentInterface {
     protected $clients;
     protected $price;
     protected $defaultOnceClientID = 0;

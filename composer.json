@@ -1,6 +1,6 @@
 {
     "config": {
-        "vendor-dir": "application/libraries"
+        "vendor-dir": "application/disks"
     },
     "require": {
         "cboden/ratchet": "^0.4.1"

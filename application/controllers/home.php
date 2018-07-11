@@ -23,8 +23,8 @@
             var_dump($categories[0]->productList);
             // Or
             // $model_demo = $this->call->model("model_demo");
-            // $demos = $model_demo->getAll();
-            // demos is an arrays object
+            // $demo_array = $model_demo->getAll();
+            // demos is an arrays with values is object
             
 
             ///////////// Helper ///////////////

@@ -6,7 +6,6 @@
         public $name;
         public $price;
         public $categoryID;
-        public $category;
 
         public function setID($id) {
             $this->id = $id;

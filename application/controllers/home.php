@@ -18,13 +18,15 @@
             // $controller_demo->sayHello();
 
             ////////////// Model ///////////////
-            $query = $this->call->model("model_demo")->demo_get_database();
+            $categories = $this->call->model("category_model")->getAll();
+            $categories[0]->getProductList();
+            var_dump($categories[0]->productList);
             // Or
             // $model_demo = $this->call->model("model_demo");
             // $query = $model_demo->demo_get_database();
-            echo $query;
+            
 
-            //Helper
+            ///////////// Helper ///////////////
             $this->call->helper("helper_demo");
             getShow();
         }

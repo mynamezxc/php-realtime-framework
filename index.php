@@ -55,6 +55,7 @@
     define('EXT', '.php');
 
     require_once(APPPATH . '/config/config' . EXT);
+    require_once(APPPATH . '/config/database' . EXT);
     require_once(APPPATH . '/core/ZXC_controller' . EXT);
     require_once(APPPATH . '/core/ZXC_model' . EXT);
 

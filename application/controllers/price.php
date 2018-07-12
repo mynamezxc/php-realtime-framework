@@ -3,9 +3,9 @@
 namespace Realtime;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
-require 'application/disks/autoload.php';
+require '../application/disks/autoload.php';
 
-class price implements MessageComponentInterface {
+class ZXC_remote implements MessageComponentInterface {
     protected $clients;
     protected $price;
     protected $defaultOnceClientID = 0;

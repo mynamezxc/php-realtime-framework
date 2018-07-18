@@ -2,6 +2,8 @@
 
     class socket extends ZXC_controller implements controller {
 
+        private $socketName = "websocket";
+
         public function __construct() {
             parent::__construct();
         }
@@ -16,7 +18,7 @@
                     if($this->config->php_exe_path !== "") {
     
                         //Disabled windows
-                        $command_script = "start \"websocket\" {$this->config->php_exe_path} {$this->config->server_file_name}";
+                        $command_script = "start \"{$this->socketName}\" {$this->config->php_exe_path} {$this->config->server_file_name}";
                         $a = shell_exec ($command_script);
     
                     } else {
@@ -36,7 +38,7 @@
                         $command_script = "cd {$server_php_path}";
                         shell_exec($command_script);
 
-                        $command_script = "start \"websocket\" {$php_exe_path} {$server_php_path}/{$this->config->server_file_name}";
+                        $command_script = "start \"{$this->socketName}\" {$php_exe_path} {$server_php_path}/{$this->config->server_file_name}";
                         $a = shell_exec ($command_script);
     
                     }
@@ -58,7 +60,7 @@
             
             if($this->config->server_websocket) {
                 if($this->config->remote_server == "windows") {
-                    $command_script = "taskkill /FI \"WindowTitle eq websocket*\" /T /F";
+                    $command_script = "taskkill /FI \"WindowTitle eq {$this->socketName}*\" /T /F";
                     shell_exec ($command_script);
                 } else if($this->config->remote_server == "linux" || $this->config->remote_server == "centos") {
                     $command_script = "kill -9 `cat pids/pid_proccess.txt`";

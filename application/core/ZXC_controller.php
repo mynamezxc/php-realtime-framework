@@ -45,6 +45,12 @@
         }
 
         public function view($file, $data = [], $returnTransfer = false) {
+
+            if(!empty($data)) {
+                extract($data);
+                unset($data);
+            }
+
             if($returnTransfer == true) {
                 return (include VIEW_PATH . $file . EXT);
             } else {

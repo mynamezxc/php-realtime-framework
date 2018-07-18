@@ -51,7 +51,7 @@
         "indexPath"         => "/"
     ];
 
-    define('APPPATH', $_SERVER['path']['applicationFolder']);
+    define('APPPATH', __DIR__."/".$_SERVER['path']['applicationFolder']);
     define('EXT', '.php');
 
     require_once(APPPATH . '/config/config' . EXT);

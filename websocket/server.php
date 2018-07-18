@@ -1,8 +1,9 @@
 <?php
-require "application/config/config.php";
+
+require __DIR__."../../application/config/config.php";
 $config = new config();
-require "application/controllers/$config->remote_file_name";
-require "application/disks/autoload.php";
+require __DIR__."../../application/controllers/$config->remote_file_name";
+require __DIR__."../../application/disks/autoload.php";
 
     use Ratchet\Server\IoServer;
     use Ratchet\Http\HttpServer;

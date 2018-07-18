@@ -28,6 +28,7 @@
             $("p.last > b").text(arr['Last']);
         };
     </script>
+    <?= $namsinh ?>
     <h1>views/realtime.php</h1>
     <button id="open">Open server</button>
     <button id="close">Close server</button>

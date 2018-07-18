@@ -11,7 +11,7 @@
         }
 
         public function sayHello() {
-            echo "loaded controller controller_demo function sayHello() <br>";
+            echo "<h1>loaded function sayHello() controller_demo in controller home</h1> <br>";
         }
 
     }

@@ -3,7 +3,7 @@
 namespace Realtime;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
-require 'application/disks/autoload.php';
+require __DIR__.'../../disks/autoload.php';
 
 class ZXC_remote implements MessageComponentInterface {
     protected $clients;

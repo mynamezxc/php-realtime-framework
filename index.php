@@ -47,7 +47,7 @@
         "libraryFolder"     => "libraries",
         "helperFolder"      => "helper",
         "diskFolder"        => "disk",
-        "baseUrl"           => "http://sales.test",
+        "baseUrl"           => "http://framework.test",
         "indexPath"         => "/"
     ];
 
@@ -78,9 +78,15 @@
 
     defined('CONTROLLER') OR define('CONTROLLER', $temp_controller);
     if(!empty($temp_method)) {
-        define('METHOD', $temp_method);
+        $method = $temp_method;
     } else {
-        define('METHOD', "index");
+        $method = "index";
+    }
+
+    if($method == CONTROLLER) {
+        define("METHOD", "index");
+    } else {
+        define("METHOD", $method);
     }
     
     $temp_c = CONTROLLER;

@@ -5,7 +5,7 @@
     
     if($config->server_websocket) {
         if($config->remote_server == "windows") {
-            $command_script = "kill -9 `more pid_proccess.txt`";
+            $command_script = "taskkill /FI \"WindowTitle eq websocket*\" /T /F";
             shell_exec ($command_script);
         } else if($config->remote_server == "linux" || $config->remote_server == "centos") {
             $command_script = "kill -9 `cat pids/pid_proccess.txt`";

@@ -8,7 +8,7 @@
 
     class ZXC_controller implements controller {
 
-        public $call;
+        public $call, $config;
 
         public function __call($name, $arguments) {
             if (!method_exists($this, $name)) {
@@ -27,6 +27,7 @@
             defined('VIEW_PATH') or define('VIEW_PATH', APPPATH . '/' . $_SERVER['path']['viewFolder'] . '/');
             defined('LIBRARY_PATH') or define('LIBRARY_PATH', APPPATH . '/' . $_SERVER['path']['libraryFolder'] . '/');
             defined('HELPER_PATH') or define('HELPER_PATH', APPPATH . '/' . $_SERVER['path']['helperFolder'] . '/');
+            $this->config = new config();
         }
 
     }
@@ -43,9 +44,12 @@
             return new $file();
         }
 
-        public function view($file) {
-            include(VIEW_PATH . $file) . EXT;
-            return new $file();
+        public function view($file, $data = [], $returnTransfer = false) {
+            if($returnTransfer == true) {
+                return (include VIEW_PATH . $file . EXT);
+            } else {
+                include(VIEW_PATH . $file) . EXT;
+            }
         }
 
         public function library($file) {

@@ -2,9 +2,6 @@
 
     class socket extends ZXC_controller implements controller {
 
-        public function __call($name, $arguments) {
-            parent::__call($name, $arguments);
-        }
         public function __construct() {
             parent::__construct();
         }
@@ -14,32 +11,33 @@
             if($this->config->server_websocket) {
 
                 if($this->config->remote_server == "windows") {
+                    
+                    
                     if($this->config->php_exe_path !== "") {
     
                         //Disabled windows
                         $command_script = "start \"websocket\" {$this->config->php_exe_path} {$this->config->server_file_name}";
                         $a = shell_exec ($command_script);
-                        $command_script = "echo $! > pids/pid_proccess.txt";
-                        shell_exec ($command_script);
     
                     } else {
     
                         //Disabled windows
                         $command_script = "where php.exe";
                         $php_exe_path = trim(preg_replace('/\s\s+/', ' ', shell_exec ($command_script)));
-    
+                        
                         //Get path
-                        $command_script = "where websocket/$this->config->server_file_name";
-                        $server_php_path = trim(preg_replace('/\s\s+/', ' ', shell_exec ($command_script)));
-    
-                        //Move to path
-                        $command_script = "cd $server_php_path";
+                        if(substr($this->config->server_php_path, -1) == "/" || substr($this->config->server_php_path, -1) == "\\") {
+                            $server_php_path = substr($this->config->server_php_path, 0, -1);
+                        } else {
+                            $server_php_path = str_replace(["/{$this->config->server_file_name}", "\\{$this->config->server_file_name}"], "", $this->config->server_php_path);
+                        }
+
+                        //Move
+                        $command_script = "cd {$server_php_path}";
                         shell_exec($command_script);
-    
-                        $command_script = "start \"websocket\" {$php_exe_path} {$this->config->server_file_name}";
+
+                        $command_script = "start \"websocket\" {$php_exe_path} {$server_php_path}/{$this->config->server_file_name}";
                         $a = shell_exec ($command_script);
-                        $command_script = "echo $! > pids/pid_proccess.txt";
-                        shell_exec ($command_script);
     
                     }
     

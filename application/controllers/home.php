@@ -2,10 +2,6 @@
     
     class home extends ZXC_controller implements controller {
 
-        public function __call($name, $arguments) {
-            parent::__call($name, $arguments);
-        }
-
         public function __construct() {
             parent::__construct();
         }
@@ -26,7 +22,9 @@
             // $demo_array = $model_demo->getAll();
             // demos is an arrays with values is object
             
-
+            ////////////// View ///////////////
+            $this->call->view("realtime");
+            
             ///////////// Helper ///////////////
             $this->call->helper("helper_demo");
             getShow();

@@ -1,8 +1,8 @@
 <?php
-require "../application/config/config.php";
+require "application/config/config.php";
 $config = new config();
-require "../application/controllers/$config->remote_file_name";
-require "../application/disks/autoload.php";
+require "application/controllers/$config->remote_file_name";
+require "application/disks/autoload.php";
 
     use Ratchet\Server\IoServer;
     use Ratchet\Http\HttpServer;

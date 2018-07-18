@@ -14,13 +14,14 @@
         public $server_websocket    = "open";//close
         public $server_default_port = 8080;
         public $server_file_name    = "server.php";
+        public $server_php_path     = "C:/laragon/www/framework/websocket";
         public $remote_file_name    = "price.php";
-        public $remote_server       = "";//windows, linux or centos
+        public $remote_server       = "windows";//windows, linux or centos
         public $php_exe_path        = "";//Server will auto get php.exe if php_exe_path empty
 
         function __construct($path = null) {
 
-            $this->remote_server = is_array($this->getOS()) ? $this->getOS()['type'] : $this->getOS();
+            $this->remote_server = empty($this->remote_server) ? $this->getOS()['type'] : $this->remote_server;
             defined('ApplicationFolder') OR define('ApplicationFolder', $path['applicationFolder']);
             defined('ControllerFolder') OR define('ControllerFolder', $path['controllerFolder']);
             defined('ModelFolder') OR define('ModelFolder', $path['modelFolder']);
